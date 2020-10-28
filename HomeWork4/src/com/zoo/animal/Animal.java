@@ -1,6 +1,6 @@
 package com.zoo.animal;
 
-public class Animal {
+abstract public class Animal {
     String name;
     String color;
 
@@ -9,7 +9,7 @@ public class Animal {
         this.color = color;
     }
 
-    public Animal(){
+    public Animal() {
 
     }
 
@@ -29,7 +29,5 @@ public class Animal {
         this.color = color;
     }
 
-    public static void say(){
-        System.out.println("Я животное");
-    }
+    abstract public void say();
 }

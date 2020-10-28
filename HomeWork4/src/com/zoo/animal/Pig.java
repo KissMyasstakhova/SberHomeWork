@@ -1,15 +1,17 @@
 package com.zoo.animal;
 
-public class Pig extends Animal {
+import com.zoo.exception.NegativeValueException;
+
+public class Pig extends Animal implements AniDo {
     String species;
     boolean curledTail;
     boolean cleannes;
 
-    public Pig(){
+    public Pig() {
         super();
     }
 
-    public Pig(String name, String color, String species, boolean curledTail, boolean cleannes){
+    public Pig(String name, String color, String species, boolean curledTail, boolean cleannes) {
         super(name, color);
         this.species = species;
         this.curledTail = curledTail;
@@ -41,16 +43,25 @@ public class Pig extends Animal {
         this.cleannes = cleannes;
     }
 
-    public static void say(){
+    public void say() {
         System.out.print("Хрю");
     }
 
-    public void doing(){
+    @Override
+    public void doing() {
         System.out.print("Купаюсь в грязи");
         cleannes = false;
     }
 
-    public void washPig(){
+    public void washPig() {
         cleannes = true;
+    }
+
+    @Override
+    public void movable(int step) throws NegativeValueException {
+        if (step < 0) {
+            throw new NegativeValueException("Передано отрицательное число");
+        }
+        System.out.println("Топ ".repeat(step));
     }
 }

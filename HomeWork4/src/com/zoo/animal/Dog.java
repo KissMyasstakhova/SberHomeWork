@@ -1,6 +1,8 @@
 package com.zoo.animal;
 
-public class Dog extends Canines {
+import com.zoo.exception.NegativeValueException;
+
+public class Dog extends Canines implements AniDo {
     String species;
     String home;
     String colorOfNose;
@@ -50,12 +52,21 @@ public class Dog extends Canines {
         this.molt = molt;
     }
 
-    public static void say(){
+    public void say(){
         System.out.println("Гав!");
     }
 
-    public static void doing(){
+    @Override
+    public void doing(){
         System.out.println("Играю с хвостом");
+    }
+
+    @Override
+    public void movable(int step) throws NegativeValueException {
+        if(step < 0) {
+            throw new NegativeValueException("Передано отрицательное число");
+        }
+        System.out.println("Бегу за мячиком на "+ step +"шага");
     }
 
     public void springCome(){

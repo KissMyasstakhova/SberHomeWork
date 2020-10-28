@@ -1,6 +1,8 @@
 package com.zoo.animal;
 
-public class Cat extends Animal {
+import com.zoo.exception.NegativeValueException;
+
+public class Cat extends Animal implements AniDo {
     boolean smoothHaired;
     String eyeColor;
 
@@ -30,11 +32,20 @@ public class Cat extends Animal {
         this.eyeColor = eyeColor;
     }
 
-    public static void say(){
+    public void say(){
         System.out.print("Мяу");
     }
 
-    public static void doing(){
+    @Override
+    public void doing(){
         System.out.print("Сплю");
+    }
+
+    @Override
+    public void movable(int step) throws NegativeValueException{
+        if(step < 0) {
+            throw new NegativeValueException("Передано отрицательное число");
+        }
+        System.out.println("Мяу - Топ ".repeat(step));
     }
 }

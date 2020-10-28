@@ -1,6 +1,8 @@
 package com.zoo.animal;
 
-public class Canines extends Animal {
+import com.zoo.exception.NegativeValueException;
+
+public class Canines extends Animal implements AniDo {
     String species;
     String size;
     String favoriteFood;
@@ -40,14 +42,22 @@ public class Canines extends Animal {
         this.favoriteFood = favoriteFood;
     }
 
-    public static void say(){
+    public void say(){
         System.out.println("Я из семества псовых");
     }
 
-    public static void doing(){
+    @Override
+    public void doing(){
         System.out.println("Занимаюсь своими псовыми делами");
     }
 
+    @Override
+    public void movable(int step) throws NegativeValueException {
+        if(step < 0) {
+            throw new NegativeValueException("Передано отрицательное число");
+        }
+        System.out.println("Топ ".repeat(step));
+    }
 
 
 }
