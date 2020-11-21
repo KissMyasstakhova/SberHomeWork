@@ -9,8 +9,9 @@ import com.zoo.exception.NegativeValueException;
 import com.zoo.exception.OutOfAviaryExceptoin;
 import java.util.ArrayList;
 
+
 public class Main {
-     public ArrayList<Animal> aviary = new ArrayList<>();
+     public ArrayList <Animal> aviary = new ArrayList<>();
      private int vacancy = 3;
      public static void main(String[] args)  {
 
